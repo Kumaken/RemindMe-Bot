@@ -1,0 +1,11 @@
+{
+  "env": {
+    "CHANNEL_ACCESS_TOKEN": "",
+    "CHANNEL_SECRET": "",
+    "WIT_AI_ACCESS_TOKEN": "",
+    "REDIS_HOST": "",
+    "REDIS_PORT": "",
+    "REDIS_PASSWORD":"",
+    "MONGODB_URI": ""
+  }
+}

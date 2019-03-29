@@ -1,0 +1,5 @@
+/downloaded/*
+!/downloaded/.gitkeep
+node_modules
+.env
+a.env.
