@@ -54,7 +54,7 @@ client.connect(err => {
           });
         });
     }
-    else if (intent == "deleteallnotes"){
+    else if (intent == "delete all notes"){
       //delete all
       MongoClient.connect(uri, function(err, db) {
         if (err) throw err;
@@ -81,6 +81,15 @@ client.connect(err => {
       var dbo = await dbtest.db("mydb");
       console.log('DELETED EVENT HERE');
       await dbo.collection("events").deleteOne({event_num : target_num});
+      //update note order
+      try {
+        dbo.collection("events").updateMany(
+            { event_num : { $gt: target_num} },  //Condition : greater than target_num
+            { $inc: { event_num : -1 } }  //YOUR JSON contents
+        ); 
+      } catch (e) {
+        print(e);
+      }
     }
     else if(intent == "delete note"){
       //show database
@@ -88,6 +97,15 @@ client.connect(err => {
       var dbo = await dbtest.db("mydb");
       console.log('DELETED NOTE HERE');
       await dbo.collection("notes").deleteOne({note_num : target_num});
+      //update note order
+      try {
+        dbo.collection("notes").updateMany(
+           { note_num : { $gt: target_num} },  //Condition : greater than target_num
+           { $inc: { note_num : -1 } }  //YOUR JSON contents
+        ); 
+     } catch (e) {
+        print(e);
+     }
     }
     else if(intent == "shownotes"){
       //show database
