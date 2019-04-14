@@ -55,13 +55,13 @@ const strictStrategy  = async (intent, message, user, event_name, datetime, pers
             text: temp
           }
     }
-    else if (intent == "deleteallnotes"){
+    else if (intent == "delete all notes"){
         replies = {
             type: "text",
             text: "Deleting all notes..."
           }
     }
-    else if (intent == "deleteallevents"){
+    else if (intent == "delete all events"){
         replies = {
             type: "text",
             text: "Deleting all events..."
